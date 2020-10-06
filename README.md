@@ -3,12 +3,12 @@
 
 Instalacion:
 
-git clone https://github.com/thiagous06/YPhish.git
+<p>git clone https://github.com/thiagous06/YPhish.git</p>
 
-cd YPhish
+<p>cd YPhish</p>
 
-chmod +x install.sh
+<p>chmod +x install.sh</p>
 
-chmod +x YPhish.py
+<p>chmod +x YPhish.py</p>
 
-python3 YPhish.py
+<p>python3 YPhish.py</p>
