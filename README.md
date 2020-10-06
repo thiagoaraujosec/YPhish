@@ -1,5 +1,5 @@
 # YPhish
-<h1>Herramienta para realizar ataques a redes sociales</h1> 
+<h1 style="color: aqua;">Herramienta para realizar ataques a redes sociales</h1> 
 
 Instalacion:
 
@@ -7,7 +7,7 @@ Instalacion:
 
 <p>cd YPhish</p>
 
-<p>chmod +x install.sh</p>
+<p style="color: aqua;">chmod +x install.sh</p>
 
 <p>chmod +x YPhish.py</p>
 
