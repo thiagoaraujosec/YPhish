@@ -11,4 +11,6 @@
 
 <h2>chmod +x YPhish.py</h2>
 
+<h2>sudo bash install.sh</h2>
+
 <h2>python3 YPhish.py</h2>
