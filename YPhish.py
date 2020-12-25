@@ -10,7 +10,8 @@ import subprocess
 import time
 from subprocess import check_output
 from sys import stdout, exit, argv  
-sys.path.insert(0,"lib") 
+sys.path.insert(0,"lib")
+from getch import pause
 sys.path.insert(0,"..")
 sys.dont_write_bytecode = True
 #from network import run_network
