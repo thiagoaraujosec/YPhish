@@ -11,7 +11,6 @@ import time
 from subprocess import check_output
 from sys import stdout, exit, argv  
 sys.path.insert(0,"lib")
-from getch import pause
 sys.path.insert(0,"..")
 sys.dont_write_bytecode = True
 #from network import run_network
@@ -218,7 +217,7 @@ def Infoga():
 	else:
 		print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
 		time.sleep(2)
-		pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+		input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
 		os.system('clear')
 		banner(), menu() , opciones()	
 
@@ -237,7 +236,7 @@ def FBI():
 	else:
 		print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
 		time.sleep(2)
-		pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+		input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
 		os.system('clear')
 		banner(), menu() , opciones()
 
@@ -256,7 +255,7 @@ def EmailOsint():
 	else:
 		print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
 		time.sleep(2)
-		pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+		input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
 		os.system('clear')
 		banner(), menu() , opciones()
 #Este
@@ -275,7 +274,7 @@ def UserRecon():
     else:
         print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
         time.sleep(2)
-        pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+        input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
         os.system('clear')
         banner(), menu() , opciones()
 
@@ -292,7 +291,7 @@ def osrframework():
     else:
         print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
         time.sleep(2)
-        pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+        input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
         os.system('clear')
         banner(), menu() , opciones()
 
@@ -311,7 +310,7 @@ def ReconDog():
 	else:
 		print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
 		time.sleep(2)
-		pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+		input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
 		os.system('clear')
 		banner(), menu() , opciones()
 
@@ -330,7 +329,7 @@ def InfoG():
 	else:
 		print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
 		time.sleep(2)
-		pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+		input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
 		os.system('clear')
 		banner(), menu() , opciones()
 
@@ -350,7 +349,7 @@ def Cupp():
 	else:
 		print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
 		time.sleep(2)
-		pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+		input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
 		os.system('clear')
 		banner(), menu() , opciones()
 
@@ -369,7 +368,7 @@ def elpscrk():
 	else:
 		print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
 		time.sleep(2)
-		pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+		input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
 		os.system('clear')
 		banner(), menu() , opciones()
 
@@ -392,7 +391,7 @@ def correospoofing():
 	else:
 		print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
 		time.sleep(2)
-		pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+		input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
 		os.system('clear')
 		banner(), menu() , opciones()
 #Brute force
@@ -434,7 +433,7 @@ def facebook():
     else:
         print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
         time.sleep(2)
-        pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+        input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
         os.system('clear')
         banner(), menu() , opciones()
 
@@ -462,7 +461,7 @@ def instashell():
     else:
         print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
         time.sleep(2)
-        pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+        input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
         os.system('clear')
         banner(), menu() , opciones()
 
@@ -481,7 +480,7 @@ def insta():
     else:
         print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
         time.sleep(2)
-        pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+        input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
         os.system('clear')
         banner(), menu() , opciones()
 
@@ -500,7 +499,7 @@ def instabrute():
     else:
         print(("\n{}[X] Esta herramienta ya existe...".format(RED)))
         time.sleep(2)
-        pause("\n{}Presione cualquier tecla para continuar...".format(GREEN))
+        input("\n{}Presione cualquier tecla para continuar...".format(GREEN))
         os.system('clear')
         banner(), menu() , opciones()
 #Phish
