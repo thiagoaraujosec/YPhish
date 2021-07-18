@@ -45,7 +45,6 @@ def banner():
     print(" |  " +Blue  +" \ V /  |  _/ | __ |  | |  \__ \ | __ |  "+ Grey +"|")
     print(" |  " +Blue  +"  |_|   |_|   |_||_| |___| |___/ |_||_|  "+ Grey +"|")
     print(" |"+"                                           "+"|")
-    print(" |"+Blue+""+Red+"The most complete social media hacking tool"+Grey+"|"+"\n |                                       "+Green +"V1.0"+Grey+"|")
     print(" |"+Blue+""+Blue+"                                         "+Grey+"  |")
     print(" |"+ Grey +"___________________________________________|")
 
