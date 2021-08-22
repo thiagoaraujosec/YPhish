@@ -885,7 +885,7 @@ def runNgrok():
     os.system('./Server/ngrok http 1111 > /dev/null &')
     while True:
         time.sleep(2)
-        os.system('curl -s -N http://127.0.0.1:4040/api/tunnels | grep "https://[0-9a-z]*\.ngrok.io" -oh > Server/Datos/ngrok.txt')
+	os.system('curl -s -N http://127.0.0.1:4040/api/tunnels | grep --max-count=37 "https://[0-9a-z].*\.ngrok.io" -oh > ngrok.txt | cat ngrok.txt')
         urlFile = open('Server/Datos/ngrok.txt', 'r')
         url = urlFile.read()
         urlFile.close()
@@ -916,5 +916,3 @@ if __name__ == "__main__":
             print(("\n{}[x] Opcion invalida.".format(RED)))
             time.sleep(2)	
             exit(0)
-
-
